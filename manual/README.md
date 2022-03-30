@@ -29,7 +29,7 @@ vagrant up
 ```
 vagrant ssh
 ```
-- Download and run the installation script
+- Download the installation script
 ```
 curl https://install.terraform.io/ptfe/stable > install.sh
 ```
@@ -65,7 +65,7 @@ To continue the installation, visit the following URL in your browser:
 
   http://<this_server_address>:8800
 ```
-- In a webbrowser go to the following link ```http://192.168.56.33.nip.io:8800```
+- In a webbrowser go to the following link [http://192.168.56.33.nip.io:8800](http://192.168.56.33.nip.io:8800)  
 - Click Continue to Setup  
 ![](media/2022-01-19-14-04-25.png)    
 - Hostname `192.168.56.33.nip.io`
