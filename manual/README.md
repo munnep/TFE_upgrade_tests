@@ -1,6 +1,6 @@
-# manual installation TFE demo with self signed certificates
+# manual installation TFE demo the specific version with upgrade
 
-This manual describes how to manually install TFE (Terraform Enterprise) with self-signed certificates
+This manual describes how to manually install TFE (Terraform Enterprise) to a specific version and after that upgrade to a more recent version
 
 For the official documentation [see this link](https://www.terraform.io/enterprise/install/interactive/installer)
 
@@ -20,6 +20,7 @@ Make sure you have TFE license available for use
 
 # How to
 
+## install TFE to a specific version
 - Start the Vagrant box on which we we will install TFE
 ```
 vagrant up
@@ -67,7 +68,9 @@ To continue the installation, visit the following URL in your browser:
 - In a webbrowser go to the following link ```http://192.168.56.33.nip.io:8800```
 - Click Continue to Setup  
 ![](media/2022-01-19-14-04-25.png)    
-
+- Hostname `192.168.56.33.nip.io`
+- Select `USE Self-Signed Cert`
+![](media/2022-03-30-10-53-13.png)  
 
 - Upload your license ```<name>.rli```  
 ![](media/2022-01-19-15-06-00.png)    
@@ -82,10 +85,38 @@ To continue the installation, visit the following URL in your browser:
     - Encryption password: ```Password#1```  
     - Installation Type: ```Demo```
     - click ```save``` at the bottom of the page 
-- On the dashboard you should see the Terraform is up and running and the link with open . This takes around 5 minutes to finish
-![](media/2022-01-19-15-17-42.png)    
+- On the dashboard you should see the Terraform is up and running and the link with open . This takes around 5 minutes to finish. Notice the version  
+![](media/2022-03-30-11-02-16.png)  
+![](media/2022-03-30-10-58-34.png)  
 - create a first account which will be the admin account  
 ![](media/2022-01-19-15-20-23.png)    
 - create your organization  
 ![](media/2022-01-19-15-20-58.png)    
 - You have a running TFE environment which you can use 
+
+## Upgrade TFE to a specific version
+
+- login to admin dashboard
+[https://192.168.56.33.nip.io:8800/](https://192.168.56.33.nip.io:8800/)
+- Click on view release history in the middle under View update   
+![](media/2022-03-30-11-04-04.png)  
+- You see that the version is currently pinned on the installed version during installation.   
+![](media/2022-03-30-11-08-09.png)   
+- Login to the vagrant machine  
+```
+vagrant ssh
+```
+- Execute the following command  
+```
+replicatedctl params set ReleaseSequence --value 0
+```
+- Go back to the dashboard and check again the version history  
+![](media/2022-03-30-11-08-54.png)  
+- select the version you wish to update to and click install    
+![](media/2022-03-30-11-09-32.png)  
+![](media/2022-03-30-11-11-41.png)  
+- Wait until finished. This takes around 10 minutes
+- TFE should be upgraded now  
+![](media/2022-03-30-11-15-37.png)  
+- Check the version  
+![](media/2022-03-30-11-16-14.png)  
