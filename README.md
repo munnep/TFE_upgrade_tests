@@ -11,8 +11,8 @@ This repo uses Vagrant to create a virtual machine.
 
 Vagrant virtual machine:
 - ubuntu virtual machine starts
-- TFE settings file will stored under ```/vagrant/config/tfe_settings.json```
-- Replicated configuration file stored under under ```/etc/replicated.conf```
+- TFE settings file are stored under ```/vagrant/config/tfe_settings.json```
+- Replicated configuration file are stored under ```/etc/replicated.conf```
 - TFE installation script will be downloaded and executed
 - the first admin user will be created within TFE to use with settings created under ```/vagrant/config/create_tfe_user.json```
 
@@ -30,11 +30,11 @@ Virtualbox [See documentation](https://www.virtualbox.org/wiki/Downloads)
 # How to
 - Clone the repository to your local machine
 ```
-git clone https://github.com/munnep/TFE_demo_self_signed_certificate.git
+git clone https://github.com/munnep/TFE_upgrade_tests.git
 ```
 - Go to the directory
 ```
-cd TFE_demo_self_signed_certificate
+cd TFE_upgrade_tests
 ```
 - save the license file as ```config/license.rli```
 - Start a virtual machine with Vagrant (duration 10 minutes)
@@ -48,12 +48,6 @@ vagrant up
     default: # TFE dashboard: https://192.168.56.33.nip.io:8800    #
     default: # TFE Application: https://192.168.56.33.nip.io       #
     default: #######################################################
-```
-- Because you created self-signed certificates you should import them into your system to be able to connect to the website.  
-Import the file ```certificates/ca.crt```      
-MacOS example:
-```
-sudo security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" certificates/ca.crt
 ```
 - login to the replicated console page
 [https://192.168.56.33.nip.io:8800](https://192.168.56.33.nip.io:8800)
@@ -80,10 +74,10 @@ vagrant destroy
 
 # Done
 - [x] Vagrant box
-- [x] Generate TLS self-signed certificates
 - [x] generate terraform settings.json file
 - [x] generate replicated.conf file
 - [x] terraform installation script
 - [x] First user automation
 
 # To do  
+- ability to install a certain version of TFE
