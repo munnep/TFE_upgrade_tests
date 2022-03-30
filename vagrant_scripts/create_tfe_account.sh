@@ -21,6 +21,8 @@ done
 
 pushd /vagrant/config
 
+# Make sure you can upgrade right away and disable server version pinning
+replicatedctl params set ReleaseSequence --value 0
 
 initial_token=$(/usr/local/bin/replicated admin --tty=0 retrieve-iact | tr -d '\r')
 
