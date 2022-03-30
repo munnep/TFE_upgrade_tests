@@ -2,19 +2,17 @@
 
 This repository does an automated installation of TFE (Terraform Enterprise) on an Ubuntu virtual machine with the option to install a specific release. This way you can install an older version and upgrade it to a more recent one
 
-This repo is largely based on another repository. [TFE demo self signed certificate](https://github.com/munnep/TFE_demo_self_signed_certificate)
-
-This repository is based on the official HashiCorp documentation. [See documentation](https://www.terraform.io/enterprise/install/automated/automating-the-installer)
+This repo is largely based on another repository. [TFE demo self signed certificate](https://github.com/munnep/TFE_demo_self_signed_certificate) and on the official HashiCorp documentation. [See documentation](https://www.terraform.io/enterprise/install/automated/automating-the-installer)
 
 
 This repo uses Vagrant to create a virtual machine.
 
 Vagrant virtual machine:
-- ubuntu virtual machine starts
+- Ubuntu virtual machine starts
 - TFE settings file are stored under ```/vagrant/config/tfe_settings.json```
 - Replicated configuration file are stored under ```/etc/replicated.conf```
 - TFE installation script will be downloaded and executed
-- the first admin user will be created within TFE to use with settings created under ```/vagrant/config/create_tfe_user.json```
+- The first admin user will be created within TFE to use with settings created under ```/vagrant/config/create_tfe_user.json```
 
 For a manual installation of TFE and upgrade follow [this documentation](manual/README.md) 
 
@@ -64,7 +62,7 @@ vagrant up
 - login to the replicated console page
 [https://192.168.56.33.nip.io:8800](https://192.168.56.33.nip.io:8800)
 - Unlock the console with the password ```Password#1```
-- You should see that everything is started.  
+- You should see that everything is started and TFE is the version you wanted.    
 ![](media/2022-03-30-16-26-04.png)  
 - Click on the open link which should point you to the TFE application [https://192.168.56.33.nip.io](https://192.168.56.33.nip.io)  
 - login using the created account
