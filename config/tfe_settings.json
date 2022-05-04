@@ -6,6 +6,12 @@
         "value": "192.168.56.33.nip.io"
     },
     "installation_type": {
-        "value": "poc"
+        "value": "production"
+    },
+    "production_type": {
+        "value": "disk"
+    },
+    "disk_path": {
+        "value": "/mnt/tfe"
     }
 }
