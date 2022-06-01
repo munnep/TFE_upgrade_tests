@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# TFE installation directory
+mkdir /mnt/tfe 
 
 cp /vagrant/config/license.rli /var/tmp/license.rli
 chmod 600 /var/tmp/license.rli

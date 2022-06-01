@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
     config.vm.provision "shell", path: "vagrant_scripts/configure_tfe_settings.sh"
     config.vm.provision "shell", path: "vagrant_scripts/configure_replicated.sh"
     config.vm.provision "shell", path: "vagrant_scripts/install_tfe.sh",
-      env: { "RELEASE_SEQUENCE" => "594" }
+        env: { "RELEASE_SEQUENCE" => "594" }
 
     config.vm.provision "shell", path: "vagrant_scripts/create_tfe_account.sh"
 
