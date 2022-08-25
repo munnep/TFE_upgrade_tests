@@ -8,13 +8,13 @@ Vagrant.configure("2") do |config|
     config.vm.provision "shell", path: "vagrant_scripts/configure_tfe_settings.sh"
     config.vm.provision "shell", path: "vagrant_scripts/configure_replicated.sh"
     config.vm.provision "shell", path: "vagrant_scripts/install_tfe.sh",
-        env: { "RELEASE_SEQUENCE" => "594" }
+        env: { "RELEASE_SEQUENCE" => "599" }
 
     config.vm.provision "shell", path: "vagrant_scripts/create_tfe_account.sh"
 
     config.vm.provider "virtualbox" do |v|
-        v.memory = 4096
-        v.cpus = 2
+        v.memory = 8192
+        v.cpus = 8
     end
     
 end
